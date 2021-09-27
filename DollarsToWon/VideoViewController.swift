@@ -17,7 +17,7 @@ class VideoViewController: UIViewController {
     }
     
     @IBAction func playVideo(_ sender: UIButton) {
-        let file:String? = Bundle.main.path(forResource: "bmi", ofType: "mp4")
+        let file:String? = Bundle.main.path(forResource: "ExchangeRate", ofType: "mp4")
         let url = NSURL(fileURLWithPath: file!)
         let playerController = AVPlayerViewController()
         let player = AVPlayer(url: url as URL)
