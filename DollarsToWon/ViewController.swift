@@ -11,8 +11,10 @@ import Foundation
 class ViewController: UIViewController {
     // MARK: -Property
     
-    let url = ""
     var flag = "Dollar"
+    
+    let apiUrl = "http://api.exchangeratesapi.io/v1/latest?access_key=c692b7b897a4d8b6b625113cfaa84cdb&format=1"
+    var exchangeRate: ExchangeRate?
     
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblMoney: UILabel!
@@ -27,20 +29,37 @@ class ViewController: UIViewController {
     }
     
     func getData() {
-        //api
+        if let url = URL(string: apiUrl) {
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: url) { data, response, error in
+                guard error == nil else { return }
+                if let JSONdata = data {
+                    let decoder = JSONDecoder()
+                    do {
+                        let decodedData = try decoder.decode(ExchangeRate.self, from: JSONdata)
+                        self.exchangeRate = decodedData
+                    }
+                    catch {
+                        print(error)
+                    }
+                }
+            }
+            task.resume()
+        }
     }
+    
     @IBAction func btnMoney(_ sender: UIButton) {
-        if txtMoney.text == "" {
-            print("Input Error")
-            lblResult.text = "Input Error"
-        } else if flag == "Dollar" {
-            var money : Double = 0
-            money = 1100 * Double(txtMoney.text!)!
+        var money = exchangeRate?.rates.KRW ?? 1100.0
+        if txtMoney.text == "" { lblResult.text = "Input Error" }
+        switch flag {
+        case "Dollar":
+            money = money * Double(txtMoney.text!)!
             lblResult.text = String(format: "%.2f", money) + " Won"
-        } else if flag == "Won" {
-            var money : Double = 0
-            money = (1 / 1100) * Double(txtMoney.text!)!
+        case "Won":
+            money = (1 / money) * Double(txtMoney.text!)!
             lblResult.text = String(format: "%.2f", money) + " Dollar"
+        default:
+            break
         }
     }
     
@@ -52,7 +71,7 @@ class ViewController: UIViewController {
             lblMoney.text = "Won"
             btnMoney.setTitle("Won To Dollar", for: .normal)
         case "Won":
-            lblTitle.text = "Dollar To Won"
+            lblTitle.text = "Dollar To Won" 
             lblMoney.text = "Dollar"
             btnMoney.setTitle("Dollar To Won", for: .normal)
         default:
