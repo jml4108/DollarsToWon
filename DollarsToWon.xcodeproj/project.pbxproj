@@ -19,6 +19,7 @@
 		68629732256A830D00B6F24C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68629730256A830D00B6F24C /* LaunchScreen.storyboard */; };
 		6862973C256A865400B6F24C /* bmi.png in Resources */ = {isa = PBXBuildFile; fileRef = 6862973B256A865400B6F24C /* bmi.png */; };
 		686AD6EF2572B3D900C10E09 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686AD6EE2572B3D900C10E09 /* VideoViewController.swift */; };
+		E05CF90B8340C9D3525C7DC7 /* Pods_DollarsToWon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2E91148911372CE86D2D680 /* Pods_DollarsToWon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,9 @@
 		68629733256A830D00B6F24C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6862973B256A865400B6F24C /* bmi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bmi.png; sourceTree = "<group>"; };
 		686AD6EE2572B3D900C10E09 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		8224C18C5AC83A1E7B22C1DC /* Pods-DollarsToWon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DollarsToWon.release.xcconfig"; path = "Target Support Files/Pods-DollarsToWon/Pods-DollarsToWon.release.xcconfig"; sourceTree = "<group>"; };
+		8449212B0D524691A7CBE05D /* Pods-DollarsToWon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DollarsToWon.debug.xcconfig"; path = "Target Support Files/Pods-DollarsToWon/Pods-DollarsToWon.debug.xcconfig"; sourceTree = "<group>"; };
+		F2E91148911372CE86D2D680 /* Pods_DollarsToWon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DollarsToWon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05CF90B8340C9D3525C7DC7 /* Pods_DollarsToWon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +59,8 @@
 			children = (
 				68629724256A830C00B6F24C /* DollarsToWon */,
 				68629723256A830C00B6F24C /* Products */,
+				D13052E8B523232E4211F21E /* Pods */,
+				82FD9F707EEC100143E3B914 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +92,24 @@
 			path = DollarsToWon;
 			sourceTree = "<group>";
 		};
+		82FD9F707EEC100143E3B914 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2E91148911372CE86D2D680 /* Pods_DollarsToWon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D13052E8B523232E4211F21E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8449212B0D524691A7CBE05D /* Pods-DollarsToWon.debug.xcconfig */,
+				8224C18C5AC83A1E7B22C1DC /* Pods-DollarsToWon.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -92,9 +117,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 68629736256A830D00B6F24C /* Build configuration list for PBXNativeTarget "DollarsToWon" */;
 			buildPhases = (
+				DE7EF2FFBA9798ACA30FE583 /* [CP] Check Pods Manifest.lock */,
 				6862971E256A830C00B6F24C /* Sources */,
 				6862971F256A830C00B6F24C /* Frameworks */,
 				68629720256A830C00B6F24C /* Resources */,
+				691EA7583E16F69B72BFBAF4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +179,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		691EA7583E16F69B72BFBAF4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DollarsToWon/Pods-DollarsToWon-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DollarsToWon/Pods-DollarsToWon-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DollarsToWon/Pods-DollarsToWon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE7EF2FFBA9798ACA30FE583 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DollarsToWon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6862971E256A830C00B6F24C /* Sources */ = {
@@ -311,6 +380,7 @@
 		};
 		68629737256A830D00B6F24C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8449212B0D524691A7CBE05D /* Pods-DollarsToWon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -329,6 +399,7 @@
 		};
 		68629738256A830D00B6F24C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8224C18C5AC83A1E7B22C1DC /* Pods-DollarsToWon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

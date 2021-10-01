@@ -5,6 +5,7 @@
 //  Created by jmlee on 2020/11/22.
 //
 
+import Alamofire
 import UIKit
 import Foundation
 
@@ -13,7 +14,7 @@ class ViewController: UIViewController {
     
     var flag = "Dollar"
     
-    let apiUrl = "http://api.exchangeratesapi.io/v1/latest?access_key=c692b7b897a4d8b6b625113cfaa84cdb&format=1"
+    let urlString = "http://api.exchangeratesapi.io/v1/latest?access_key=c692b7b897a4d8b6b625113cfaa84cdb&format=1"
     var exchangeRate: ExchangeRate?
     
     @IBOutlet weak var lblTitle: UILabel!
@@ -25,26 +26,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
-        // Do any additional setup after loading the view.
     }
-    
+
     func getData() {
-        if let url = URL(string: apiUrl) {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { data, response, error in
-                guard error == nil else { return }
-                if let JSONdata = data {
-                    let decoder = JSONDecoder()
-                    do {
-                        let decodedData = try decoder.decode(ExchangeRate.self, from: JSONdata)
-                        self.exchangeRate = decodedData
-                    }
-                    catch {
-                        print(error)
-                    }
+        AF.request(urlString).responseJSON { response in
+            switch response.result {
+            case .success(let res):
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: res, options: .prettyPrinted)
+                    let json = try JSONDecoder().decode(ExchangeRate.self, from: jsonData)
+                    self.exchangeRate = json
                 }
+                catch(let err) {
+                    print(err)
+                }
+            case .failure(let err):
+                print(err)
             }
-            task.resume()
         }
     }
     
